@@ -1,0 +1,94 @@
+.body {
+	font-family: 'Asap', sans-serif;
+	font-size: 1.2rem;
+	color: #111;
+}
+
+.header {
+	color: #eee;
+	border-style: solid;
+	border-color: #333;
+	border-width: 0px 0px 1px 0px;
+	position: relative;
+	z-index: 1;
+	float: left;
+	height: 39px;
+	width: 100%;
+}
+
+#fake-header {
+	display: block;
+	height:  39px;
+	width: 100%;
+}
+
+.navEl a:link, .navEl a:visited {
+	color: #eee;
+}
+
+.title .h3  a:link, .title .h3 a:visited {
+	color: #88e;
+	text-decoration: none;
+}
+
+.title-wrapper {
+	width: 100%;
+	height: 400px;
+}
+
+
+.title-wrapper-small {
+	width: 100%;
+	height: 200px;
+}
+
+.title-wrapper p {
+	text-align: center !important;
+}
+
+.title-wrapper-small p {
+	text-align: center !important;
+}
+
+.title {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.content p {
+	margin: 1% auto 2% auto;
+	width: 95%;
+	text-align: justify;
+}
+
+#random-text {
+	font-size: 70%;
+	width: 80%;
+}
+
+.content .button {
+	text-align: center;
+	width: 100%;
+	font-size: 150%;
+	color: #eee;
+	padding-top: 2px;
+	padding-bottom: 5px;
+}
+
+.separate-bg {
+	background: rgba(17,17,17,1);
+}
+
+.plain-bg {
+	background: url("../img/paper.png");
+}
+
+.dark-bg {
+	background: url("../img/pixels.png");
+	color: #eee;
+}
+
+.button-real {
+	cursor: pointer;
+}
