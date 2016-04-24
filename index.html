@@ -159,7 +159,7 @@ scroll_1.onclick = (function () {
 
 var scroll_2 = document.getElementById("gen");
 scroll_2.onclick = (function () {
-	smoothScroll("random-text");
+	//smoothScroll("random-text");
 	newText();
 });
 
@@ -191,6 +191,10 @@ var instructions = [
 ];
 
 function instruct() {
+	if (generated) {
+		return;
+	}
+
 	if (pc == instructions.length) {
 		newText();
 	} else {
