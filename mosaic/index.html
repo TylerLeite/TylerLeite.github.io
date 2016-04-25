@@ -1,0 +1,105 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="./style/home.css">
+
+	<script src="./js/processimage.js"></script>
+</head>
+
+<body class="body">
+<div class="wrapper">
+	<div class="header">
+		<a href="#"><img src="./img/logo.png" width="32px" height="32px" class="logo"></a>
+		<nav class="nav noselect"><ul>
+			<li class="navEl"><a href="#">[home]</a></li>
+			<li class="navEl"><a href="#">[contact]</a></li><p class="separate">:|:</p>
+			<li class="navEl"><a href="#">[soundbox]</a></li>
+			<li class="navEl"><a href="#">[evolution]</a></li>
+			<li class="navEl"><a href="#">[puzzle]</a></li>
+
+		</ul></nav>
+	</div>
+	<div class="content">
+		<p class="h3">This is a website.</p>
+
+		<div id="mosaic">
+			<table id="mosaicCanvas"></table>
+		</div>
+	</div>
+
+	<img id="scratchIm" style="display:none" src="">
+	<canvas id="scratchCn" width="100px" height="100px" ></canvas>
+</div>
+
+<script>
+
+	function placeMosaicTile(x, y) {
+		//
+	}
+
+	function pixelArrFromURL(url) {
+		var canvas = document.getElementById("scratchCn");
+		var ctx = canvas.getContext('2d');
+		//var img = document.getElementById("scratchIm");
+		var img = new Image();
+
+		//img.crossOrigin = 'Anonymous';
+
+		img.onload = function() {
+		    ctx.drawImage(img, 0, 0 );
+		    //localStorage.setItem( "savedImageData", canvas.toDataURL("image/png") );
+		}
+
+		img.src = url;
+
+		var ch = 100;
+		var cw = 100;
+
+		var datums = ctx.getImageData(0, 0, cw, ch).data;
+
+		console.log(datums);
+
+		var out = [];
+		for (var i = 0; i < cw; i++) {
+			out.push([]);
+			for (var j = 0; j < ch; j++) {
+				var index = j + i*cw;
+				var val = [];
+				for (var k = 0; k < 4; k++){
+					if (k == 3) {
+						continue;
+					} else {
+						val.push(datums[index + k]);
+					}
+				}
+				out[i].push(val);
+			}
+		}
+
+		return out;
+	}
+
+	var testPixArr = pixelArrFromURL("img/mosaic/test.png");
+	var testin = processPixelArr(testPixArr);
+	//console.log(testPixArr);
+	//console.log(testin);
+
+	function fillMosaic(pixels) {
+		var tbl = document.getElementById("mosaicCanvas");
+		for (var i = 0; i < pixels.length; i++) {
+			var row = tbl.insertRow(i);
+			for (var j = 0; j < pixels[i].length; j++) {
+				var cell = row.insertCell(j);
+				cell.className += " tile ";
+				cell.style = "background-color: " + pixels[i][j] + ";";
+			}
+		}
+	}
+
+	fillMosaic(testin);
+</script>
+
+</body>
