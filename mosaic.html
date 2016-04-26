@@ -4,102 +4,99 @@
 	<meta charset="UTF-8">
 	<link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="./style/home.css">
+	<link rel="stylesheet" type="text/css" href="./style/style.css">
+	<link rel="stylesheet" type="text/css" href="./style/mosaic.css">
 
-	<script src="./js/processimage.js"></script>
+	<script src="./js/mosaic/processimage.js"></script>
 </head>
 
-<body class="body">
-<div class="wrapper">
-	<div class="header">
-		<a href="#"><img src="./img/logo.png" width="32px" height="32px" class="logo"></a>
-		<nav class="nav noselect"><ul>
-			<li class="navEl"><a href="#">[home]</a></li>
-			<li class="navEl"><a href="#">[contact]</a></li><p class="separate">:|:</p>
-			<li class="navEl"><a href="#">[soundbox]</a></li>
-			<li class="navEl"><a href="#">[evolution]</a></li>
-			<li class="navEl"><a href="#">[puzzle]</a></li>
 
+<body class="body plain-bg">
+<div class="wrapper">
+	<div id="header" class="header separate-bg">
+		<a target="_blank" href="https://www.google.com/search?q=milk&ie=utf-8&oe=utf-8#q=portuguese+for+milk"><img src="./img/logo.png" width="32px" height="32px" class="logo"></a>
+		<nav id="nav" class="nav noselect"><ul>
+			<li class="navEl"><a target="" href="index.html">[home]</a></li>
+			<li class="navEl"><a target="" href="resume.html">[resume]</a></li><p class="separate">:|:</p>
+			<li class="navEl"><a target="" href="#">[mosaic]</a></li>
 		</ul></nav>
 	</div>
+	<div id="fake-header"></div>
 	<div class="content">
 		<p class="h3">This is a website.</p>
 
-		<div id="mosaic">
-			<table id="mosaicCanvas"></table>
+		<div class="mosaic-wrapper">
+			<div id="sources-left" class="sources"></div>
+			<div id="mosaic">
+				<table id="mosaic-canvas"></table>
+			</div>
+			<div id="sources-right" class="sources"></div>
 		</div>
 	</div>
 
-	<img id="scratchIm" style="display:none" src="">
-	<canvas id="scratchCn" width="100px" height="100px" ></canvas>
+	<canvas id="scratch-can" width="100px" height="100px" ></canvas>
 </div>
 
 <script>
-
-	function placeMosaicTile(x, y) {
-		//
+	var images = ["glam", "silhouette", "edge", "hills", "handsome", "coolflower", "overlook", "tower"];
+	var sources = document.getElementById("sources-left");
+	for (var i = 0; i < images.length; i++) {
+		if (i > 3) {
+			sources = document.getElementById("sources-right");
+		}
+		var image = document.createElement("img");
+		image.src = "./img/mosaic/" + images[i] + ".png";
+		image.width = 100;
+		image.height = 100;
+		sources.appendChild(image);
+		image.onclick = (function () {
+			mosaicFromURL(this.src);
+		});
 	}
 
-	function pixelArrFromURL(url) {
-		var canvas = document.getElementById("scratchCn");
+	function fillMosaic(pixels, width, height) {
+		var tbl = document.getElementById("mosaic-canvas");
+		tbl.innerHTML = "";
+		for (var i = 0; i < height; i++) {
+			var row = tbl.insertRow(i);
+			for (var j = 0; j < width; j++) {
+				var cell = row.insertCell(j);
+				cell.className += " tile";
+				cell.style = "background-color: " + pixels[i*height + j] + ";";
+			}
+		}
+	}
+
+	function mosaicFromURL(url) {
+		// We have to use the canvas in order to read pizel data
+		var canvas = document.getElementById("scratch-can");
 		var ctx = canvas.getContext('2d');
-		//var img = document.getElementById("scratchIm");
+		ctx.clearRect(0,0,100,100);
 		var img = new Image();
 
-		//img.crossOrigin = 'Anonymous';
-
 		img.onload = function() {
-		    ctx.drawImage(img, 0, 0 );
-		    //localStorage.setItem( "savedImageData", canvas.toDataURL("image/png") );
-		}
+			// Make sure all this only happens AFTER the image is loaded
+		    ctx.drawImage(img, 0,0,img.width,img.height, 0,0,100,100);
+			var datums = ctx.getImageData(0, 0, 100, 100).data;
+			var out = [];
 
-		img.src = url;
-
-		var ch = 100;
-		var cw = 100;
-
-		var datums = ctx.getImageData(0, 0, cw, ch).data;
-
-		console.log(datums);
-
-		var out = [];
-		for (var i = 0; i < cw; i++) {
-			out.push([]);
-			for (var j = 0; j < ch; j++) {
-				var index = j + i*cw;
+			for (var i = 0; i < datums.length; i += 4) {
 				var val = [];
-				for (var k = 0; k < 4; k++){
-					if (k == 3) {
-						continue;
-					} else {
-						val.push(datums[index + k]);
-					}
+				for (var k = 0; k < 3; k++){
+					val.push(datums[i + k]);
 				}
-				out[i].push(val);
+				out.push(val);
 			}
+
+			fillMosaic(processPixelArr(out), 100, 100);
 		}
 
-		return out;
+		// Load the img
+		img.src = url;
 	}
 
-	var testPixArr = pixelArrFromURL("img/mosaic/test.png");
-	var testin = processPixelArr(testPixArr);
-	//console.log(testPixArr);
-	//console.log(testin);
+	mosaicFromURL("img/mosaic/glam.png");
 
-	function fillMosaic(pixels) {
-		var tbl = document.getElementById("mosaicCanvas");
-		for (var i = 0; i < pixels.length; i++) {
-			var row = tbl.insertRow(i);
-			for (var j = 0; j < pixels[i].length; j++) {
-				var cell = row.insertCell(j);
-				cell.className += " tile ";
-				cell.style = "background-color: " + pixels[i][j] + ";";
-			}
-		}
-	}
-
-	fillMosaic(testin);
 </script>
 
 </body>

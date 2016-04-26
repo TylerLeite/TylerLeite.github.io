@@ -1,14 +1,11 @@
 function processPixelArr(oldArr) {
 	var newArr = [];
 	for (var i = 0; i < oldArr.length; i++) {
-		newArr.push([]);
-		for (var j = 0; j < oldArr[i].length; j++) {
-			var rgb = oldArr[i][j];
-			//console.log(info);
-			var info = classify(rgb[0], rgb[1], rgb[2]);
-			var className = mapColorToCSS(info[0], info[1]);
-			newArr[i].push(className);
-		}
+		var rgb = oldArr[i];
+		//console.log(info);
+		var info = classify(rgb[0], rgb[1], rgb[2]);
+		var className = mapColorToCSS(info[0], info[1]);
+		newArr.push(className);
 	}
 
 	return newArr;
@@ -21,8 +18,6 @@ function classify(r,g,b) {
 
 	var max = Math.max(r, g, b);
 	var min = Math.min(r, g, b);
-
-	//0.5019607843137255, 0.03137254901960784, 0.5019607843137255
 
 	var h; var s; var v; var d;
 	v = (max + min) / 2;
@@ -68,11 +63,11 @@ function classify(r,g,b) {
 		return ['white', 50];
 	} else if (s <= 0.15 && v <= 0.65) { //gray shades are special since they make up 3 colors
 		if (v >= 0.6){
-			shade = 50;
+			shade = 'light';
 		} else if (v <= 0.25) {
-			shade = -50;
+			shade = 'dark';
 		} else {
-			shade = 0;
+			shade = 'normal';
 		}
 
 		return ['gray', shade];
@@ -99,14 +94,6 @@ function classify(r,g,b) {
 
 // info is a list
 function mapColorToCSS(color, shade) {
-	if (shade == 50) {
-		shade = 'light';
-	} else if (shade == -50) {
-		shade = 'dark';
-	} else if (shade == 0) {
-		shade = 'normal';
-	}
-
 	switch (shade) {
 		case 'light':
 			switch (color) {
@@ -151,9 +138,9 @@ function mapColorToCSS(color, shade) {
 				case 'orange':
 					return 'DarkOrange';
 				case 'pink':
-					return 'Fuscia';
+					return 'Violet';
 				case 'purple':
-					return 'DeepMagenta';
+					return 'Indigo';
 				case 'red':
 					return 'DarkRed';
 				case 'white':

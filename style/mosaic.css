@@ -1,0 +1,37 @@
+.tile {
+	height: 4px !important;
+	width: 4px !important;
+}
+
+.mosaic-wrapper {
+	display: block;
+	margin: 0 auto !important;
+	width: 604px;
+}
+
+#mosaic-canvas tr {
+	display: block;
+}
+
+#mosaic-canvas td {
+	float: left;
+	display: block;
+}
+
+#mosaic-canvas {
+	float: left;
+	margin-top: -2px;
+}
+
+#scratch-can {
+	display: none;
+}
+
+.sources {
+	width: 100px;
+	float: left;
+}
+
+.sources img {
+	display: block;
+}
