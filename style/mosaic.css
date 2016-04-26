@@ -1,3 +1,41 @@
+.body {
+	background-color: #ddd;
+	font-family: 'Asap', sans-serif;
+}
+
+.separate-bg {
+	background-color: #0be699;
+}
+
+.header {
+	color: #111;
+	height: 39px;
+	width: 100%;
+	font-size: 1.2em;
+}
+
+.navEl a:link, .navEl a:visited {
+	color: #111;
+}
+
+.title .h3  a:link, .title .h3 a:visited {
+	color: #111;
+	text-decoration: none;
+}
+
+.h1 {
+	text-align: center;
+	margin-top: 3%;
+}
+
+.description {
+	width: 90%;
+	margin: 3% auto;
+	display: block;
+	text-align: justify;
+	font-size: 1.4em;
+}
+
 .tile {
 	height: 4px !important;
 	width: 4px !important;
