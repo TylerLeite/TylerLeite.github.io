@@ -12,6 +12,9 @@
 	height: 39px;
 	width: 100%;
 	font-size: 1.2em;
+	border-style: solid;
+	border-color: #1b1;
+	border-width: 0px 0px 1px 0px;
 }
 
 .navEl a:link, .navEl a:visited {
@@ -72,4 +75,5 @@
 
 .sources img {
 	display: block;
+	cursor: pointer;
 }
