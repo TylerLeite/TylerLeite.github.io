@@ -36,10 +36,9 @@
 	height: 100vh;
 }
 
-
 .title-wrapper-small {
 	width: 100%;
-	height: 23.6vw;
+	height: 50vh;
 }
 
 .title-wrapper p {
@@ -72,8 +71,8 @@
 	width: 100%;
 	font-size: 150%;
 	color: #eee;
-	padding-top: 0.2vw;
-	padding-bottom: 0.5vw;
+	padding-top: 0.2vh;
+	padding-bottom: 0.5vh;
 }
 
 .separate-bg {

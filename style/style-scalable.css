@@ -21,23 +21,24 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .header {
 	font-family: 'Nunito', sans-serif;
 	padding: 0.5vw 0;
-	height: 8vh;
+	height: 7.2vh;
 	width: 100%;
-	font-size: 1.4vw;
+	font-size: 1.8vw;
 }
 
 .header .logo {
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
-	margin: 0 0.5%;
-	height: 2.8vw;
-	width: 2.8vw;
+	margin: 0 1%;
+	height: 5.6vh;
+	width: 5.6vh;
 	float:left;
 }
 
 .nav {
-	height: 2.8vw;
+	height: 2.8vh;
+	margin-left: 0.5vw;
 }
 
 .nav ul {
@@ -47,7 +48,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 .navEl {
     display: inline-block;
-	margin: 0.7vw 0.5vw 0 0.5vw;
+	margin: 0 0.5vw 0 0;
 }
 
 
@@ -56,17 +57,17 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .h1 {
-	font-size: 3.3vw;
+	font-size: 7vh;
 	padding: 1% 0;
 }
 
 .h2 {
-	font-size: 1.8vw;
+	font-size: 3.6vh;
 	padding: 0 0 1% 0;
 }
 
 .h3 {
-	font-size: 1.4vw;
+	font-size: 2.8vh;
 	padding: 0 0 1% 0;
 }
 
@@ -90,7 +91,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 .separate {
 	display: inline-block;
-	margin: 0 1vw 0 1.5vw;
+	margin: 0 0.5vw 0 0.5vw;
 }
 
 @keyframes fadeIn {

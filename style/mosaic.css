@@ -26,6 +26,11 @@
 	text-decoration: none;
 }
 
+.content {
+	margin-bottom: 4%;
+	display: inline-block;
+}
+
 .h1 {
 	text-align: center;
 	margin-top: 3%;
