@@ -8,6 +8,14 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     background: transparent;
 }
 
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none;   /* Chrome/Safari/Opera */
@@ -27,18 +35,17 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .header .logo {
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
 	margin: 0 1%;
 	height: 5.6vh;
 	width: 5.6vh;
+	margin-top: 0.8vh;
 	float:left;
 }
 
 .nav {
 	height: 2.8vh;
 	margin-left: 0.5vw;
+	margin-top: calc(3.6vh - 1.2vw);
 }
 
 .nav ul {
