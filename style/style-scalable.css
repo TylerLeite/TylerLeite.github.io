@@ -141,3 +141,17 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .fade-pause {
 	animation-play-state: paused;
 }
+
+@media screen
+	and (max-width: 900px){
+
+	.header {
+
+		font-size: 2.6vw;
+	}
+
+	.nav {
+		margin-top: calc(3.6vh - 1.8vw);
+	}
+
+}
