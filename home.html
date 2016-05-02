@@ -17,7 +17,7 @@
 	<div id="header" class="header separate-bg">
 		<a target="_blank" href="https://www.google.com/search?q=milk&ie=utf-8&oe=utf-8#q=portuguese+for+milk"><img src="./img/logo.png" width="32px" height="32px" class="logo"></a>
 		<nav id="nav" class="nav noselect"><ul>
-			<li class="navEl"><a target="_blank" href="index_old">[home]</a></li>
+			<li class="navEl"><a target="_blank" href="index-old">[home]</a></li>
 			<li class="navEl"><a target="_blank" href="resume">[resume]</a></li>
 			<li class="navEl"><a target="_blank" href="https://github.com/TylerLeite">[github]</a></li>
 			<li class="navEl"><a target="_blank" href="http://linkedin.com/in/tylerleite">[linkedin]</a></li><p class="separate">:|:</p>
@@ -157,55 +157,6 @@ scroll_2.onclick = (function () {
 	//smoothScroll("random-text");
 	newText();
 });
-
-var pc = 0;
-var instructions = [
-	"It's really not that hard, give it a good think.",
-	"I don't get it, it's really not that hard.",
-	"It is physically painful for me to see you struggling with this.",
-	"If you need a hint, try looking at the \"generate\" button.",
-	"It's right there, just above this text.",
-	"You can tell it apart from the rest of the page because it has a black background.",
-	"It looks a lot like this -> [generate]",
-	"If you ask me, clicking that button would surely be helpful.",
-	"...",
-	"Are you serious right now?",
-	"No, you can't be serious. No one could be serious about this.",
-	"You're serious aren't you?",
-	"How did you even get here. Like seriously, the generate button is right there. If you can't find that I am genuinely curious how you got here.",
-	"You know what? I actually want to know how you managed to find your way here. Here's my email: tyler.leite@yandex.com",
-	"You do know how to send an email, right?",
-	"I should have known.",
-	"All right, I'm just going to click if for you, ok?",
-	"This is your last chance to figure it out for yourself.",
-	"Well \"figure it out\" is putting it nicely. Like I legit gave you the answer.",
-	"But whatever, I'm gonna help you out here. Because I care about you.",
-	"Text changing in 3",
-	"Text changing in 2",
-	"Text changing in 1"
-];
-
-function instruct() {
-	if (generated) {
-		return;
-	}
-
-	if (pc == instructions.length) {
-		newText();
-	} else {
-		var text = document.getElementById("random-text");
-		text.innerHTML = instructions[pc];
-		pc += 1;
-
-		if (pc > instructions.length - 3) {
-			setTimeout(instruct, 1000);
-		} else {
-			setTimeout(instruct, 8000);
-		}
-	}
-}
-
-setTimeout(instruct, 180000);
 
 </script>
 </body>
