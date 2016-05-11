@@ -1,2 +1,0 @@
-# go-thello
-Othello + Go = ?
