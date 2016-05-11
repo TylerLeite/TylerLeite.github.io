@@ -1,0 +1,11 @@
+#spotLight {
+  width:1024px;
+  height:768px;
+  z-index:9;
+  position:absolute;
+  display:none;
+}
+
+body {
+	background-color: #ddd;
+}
