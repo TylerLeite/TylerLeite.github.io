@@ -5,9 +5,9 @@ spotlights like _- -_ then swoop on down
 
 the actors on bottom
 
-______________________________
+___________________________________
 |contact|about|calendar|buy tickets
---------------------------------------------
+------------------------------------
 
 ****************************************************************************************
 
@@ -15,27 +15,27 @@ fake chemistry lab website
 
 what we do cartoons
 	-scientist pouring into flask
-	-meeting aroudnd a table
+	-meeting around a table
 	-programming on computer, sip coffee
 	-shake hands with some guy
 
 _________________________________
-contact     experiements       for hire
-fax           sponsor us           meet the team
-email        research          
+contact     experiments     for hire
+fax         sponsor us      meet the team
+email       research
 
 ****************************************************************************************
 
 action movie website
 
 fight scene in background
-<    text      > (fade between texts)
+<    text    > (fade between texts)
 
 ****************************************************************************************
 
 atk mushrooms
 
-scroll past parts 
+scroll past parts
 
 -microgreens grow
 -mushrooms bloom
