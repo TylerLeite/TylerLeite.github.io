@@ -1,0 +1,55 @@
+.body {
+	background-image: url("../img/pixels.png");
+	font-family: 'Asap', sans-serif;
+	font-size: 1.2rem;
+	color: #111;
+}
+
+.separate {
+	color: #eee
+}
+
+.header {
+	background-image: none;
+}
+
+.navEl a:link, .navEl a:visited {
+	color: #eee;
+}
+
+.form {
+	color: #eee;
+	margin: 0 auto;
+	width: 90%;
+	display: block;
+	text-align: center;
+}
+
+.engine-wrapper {
+	text-align: center;
+}
+
+.engine-wrapper canvas {
+	width: 800px !important;
+	height: 640px !important;
+	display: inline-block;
+	background: transparent !important;
+}
+
+.split {
+	text-align: center;
+	margin: 0 auto;
+	width: 100%;
+	display: inline-block;
+}
+
+.half {
+	display: inline-block;
+	float: left;
+	margin: 0 1%;
+	text-align: justify;
+}
+
+.half label {
+	display: inline-block;
+}

@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="./style/style-scalable.css">
-	<link rel="stylesheet" type="text/css" href="./style/index-scalable.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="./css/home-v1.css">
 
 	<link rel="icon" type="image/png" href="./img/favicon.png">
 
@@ -17,17 +17,11 @@
 	<div id="header" class="header separate-bg">
 		<a target="_blank" href="https://www.google.com/search?q=milk&ie=utf-8&oe=utf-8#q=portuguese+for+milk"><img src="./img/logo.png" width="32px" height="32px" class="logo"></a>
 		<nav id="nav" class="nav noselect"><ul>
-			<li class="navEl"><a target="_blank" href="https://www.google.com/maps/place/41+Botsford+Ave,+Milford,+CT+06460/@41.1893365,-73.0915363,17z/data=!3m1!4b1!4m2!3m1!1s0x89e80ccc9f0b0b69:0x36f046694681651e">[home]</a></li>
-			<li class="navEl"><a target="_blank" href="resume.html">[resume]</a></li><p class="separate">:|:</p>
-			<li class="navEl"><a target="_blank" href="https://github.com/TylerLeite">[more]</a></li>
-			<li class="navEl"><a target="_blank" href="https://www.youtube.com/watch?v=o-_7Kncw9T0">[to]</a></li>
-			<li class="navEl"><a target="_blank" href="http://www.newgrounds.com/portal/view/562242">[come]</a></li>
-			<li class="navEl small_1"><a target="_blank" href="https://www.facebook.com/tyler.leite.7">[i]</a></li>
-			<li class="navEl small_2"><a target="_blank" href="http://www.gamesetwatch.com/column_at_play/7.php">[swear]</a></li>
-			<li class="navEl small_3"><a target="_blank" href="https://discordapp.com/">[please]</a></li>
-			<li class="navEl small_4"><a target="_blank" href="https://www.youtube.com/watch?v=ZM2-NsvTVDc">[don't]</a></li>
-			<li class="navEl small_5"><a target="_blank" href="https://www.youtube.com/watch?v=QRrer1toZX4">[leave]</a></li>
-			<li class="navEl small_6"><a target="_blank" href="https://www.linkedin.com/in/tylerleite">[me]</a></li>
+			<li class="navEl"><a target="_blank" href="index-old">[home]</a></li>
+			<li class="navEl"><a target="_blank" href="resume">[resume]</a></li>
+			<li class="navEl"><a target="_blank" href="https://github.com/TylerLeite">[github]</a></li>
+			<li class="navEl"><a target="_blank" href="http://linkedin.com/in/tylerleite">[linkedin]</a></li><p class="separate">:|:</p>
+			<li class="navEl"><a href="mosaic">[mosaic]</a></li>
 		</ul></nav>
 	</div>
 	<div id="fake-header"></div>
@@ -44,7 +38,7 @@
 				<p class="h1">this is a website.</p>
 			</div>
 		</div>
-		<p class="fade-in fade-pause">This is a website. Well, not really at this point. It'll come along though. Eventually. I even have things to put up, it's just a matter of cleaning everything up. I wouldn't want to be embarassed by sloppy code on my portfolio website, now would I? Anyway, I know I don't have a link here yet, which means you had to use some shenanigans to get here. Something like typing in the URL, or navigating here from my GitHub profile. Maybe you just took the URL from my resume and thought "Hey, <a class="hidden_link" target="_blank" href="http://i.imgur.com/oTDdyJV.jpg">this guy</a> is really cool and <a class="hidden_link" target="_blank" href="http://i.imgur.com/oTDdyJV.jpg">handsome</a>! I wonder what else this <a class="hidden_link" target="_blank" href="http://i.imgur.com/oTDdyJV.jpg">dashing young man</a> has created...". At any rate, you put in effort, real effort, to get here. And what is there to show for it? Nothing. How embarassing for me, right? I really wouldn't want to disappoint you like that. I mean, we only just met! And honestly, I hate to give a bad first impression. So here, I guess I'll give you a sneak peak at something I've been tinkering with.</p>
+		<p class="fade-in fade-pause">This is a website. Well, not really at this point. It'll come along though. Eventually. I even have lots of things to put up, it's just a matter of cleaning everything up. I wouldn't want to be embarassed by sloppy code on my portfolio website, now would I? Anyway, I know I don't have all that much up on the interweb yet, but I'll give you a rundown on what I do have. [mosaic] is a script that takes in an image, classifies each pixel with a named color, then spits out a mosaic version of that image. Below is something else.</p>
 		<p class="fade-in fade-pause">It's a random text generator. Basically, it takes a bunch of phonemes (the building blocks of words) and puts them together mostly randomly. By this method, it builds up a vocabulary and stores it in a "dictionary". It then picks words randomly from this dictionary and separates them with periods (full-stops) and commas (probably half-stops, maybe a little less). Behind the scenes, there are a bunch of variables that control things like average syllable count and lexical density. These variables make up a genome of sorts. The code that I have written so far is a set of instructions for how to express that genome. Big picture, this is going to be part of a project where I analyze text from a bunch of different languages to create a "genotype pool" and then make hybrid and imitation languages like some kind of mad scientist.</p>
 
 		<p class="button separate-bg"><span id="gen" class="button-real noselect">[generate]</span> 255 words of text</p>
@@ -163,55 +157,6 @@ scroll_2.onclick = (function () {
 	//smoothScroll("random-text");
 	newText();
 });
-
-var pc = 0;
-var instructions = [
-	"It's really not that hard, give it a good think.",
-	"I don't get it, it's really not that hard.",
-	"It is physically painful for me to see you struggling with this.",
-	"If you need a hint, try looking at the \"generate\" button.",
-	"It's right there, just above this text.",
-	"You can tell it apart from the rest of the page because it has a black background.",
-	"It looks a lot like this -> [generate]",
-	"If you ask me, clicking that button would surely be helpful.",
-	"...",
-	"Are you serious right now?",
-	"No, you can't be serious. No one could be serious about this.",
-	"You're serious aren't you?",
-	"How did you even get here. Like seriously, the generate button is right there. If you can't find that I am genuinely curious how you got here.",
-	"You know what? I actually want to know how you managed to find your way here. Here's my email: tyler.leite@yandex.com",
-	"You do know how to send an email, right?",
-	"I should have known.",
-	"All right, I'm just going to click if for you, ok?",
-	"This is your last chance to figure it out for yourself.",
-	"Well \"figure it out\" is putting it nicely. Like I legit gave you the answer.",
-	"But whatever, I'm gonna help you out here. Because I care about you.",
-	"Text changing in 3",
-	"Text changing in 2",
-	"Text changing in 1"
-];
-
-function instruct() {
-	if (generated) {
-		return;
-	}
-
-	if (pc == instructions.length) {
-		newText();
-	} else {
-		var text = document.getElementById("random-text");
-		text.innerHTML = instructions[pc];
-		pc += 1;
-
-		if (pc > instructions.length - 3) {
-			setTimeout(instruct, 1000);
-		} else {
-			setTimeout(instruct, 8000);
-		}
-	}
-}
-
-setTimeout(instruct, 180000);
 
 </script>
 </body>

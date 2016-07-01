@@ -27,12 +27,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .header {
-	font-family: 'Asap', sans-serif;
+	font-family: 'Nunito', sans-serif;
 	padding: 0.5vw 0;
 	height: 7.2vh;
 	width: 100%;
 	font-size: 1.8vw;
-	text-align: center;
 }
 
 .header .logo {
@@ -41,12 +40,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	width: 5.6vh;
 	margin-top: 0.8vh;
 	float:left;
-	display: none;
 }
 
 .nav {
-	display: inline-block;
 	height: 2.8vh;
+	margin-left: 0.5vw;
 	margin-top: calc(3.6vh - 1.2vw);
 }
 
@@ -57,8 +55,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 .navEl {
     display: inline-block;
-	margin: 0 0.9vw;
+	margin: 0 0.5vw 0 0;
 }
+
 
 .navEl a:link, .navEl a:visited {
 	text-decoration: none;
@@ -86,14 +85,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .small_5 {font-size: 40%;}
 .small_6 {font-size: 30%;}
 
-.hrTop {
-	width: 95%;
-	margin: 0 auto;
-}
-
-.hrBot {
-	width: 90%;
-	margin: 0 auto;
+.hidden_link {
+	color: #111;
+	text-decoration: none;
 }
 
 .fake-link {
@@ -113,19 +107,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	} to {
 		opacity: 1;
 	}
-}
-
-.hover-fade {
-	border-style: solid;
-	border-width: 3px;
-	border-color: rgba(200,200,0, 0);
-	transition: border-color .5s ease-in-out;
-	-moz-transition: border-color .5s ease-in-out;
-	-webkit-transition: border-color .5s ease-in-out;
-}
-
-.hover-fade:hover, .selected {
-	border-color: rgba(200,200,0,0.3);
 }
 
 .fade-in {

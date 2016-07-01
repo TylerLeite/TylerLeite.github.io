@@ -1,0 +1,131 @@
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+
+/* Customized color scheme */
+:root {
+	--main-nav-bg: #c2c694; /* light yellow */
+	--nav-hover-bg: #A8422A; /* orange */
+	--nav-header-text: #A8422A; /* orange */
+	--nav-text: #366321; /* dark green */
+	--nav-active-text: #d5d5d5; /* white */
+	--nav-border-color: #989C75; /* dark light yellow */
+	--nav-dropdown-bg: #989C75; /* dark light yellow */
+	--nav-dropdown-divider: #888C65; /* dark dark light yellow */
+}
+
+/* default nav background */
+.navbar-default {
+	background-color: var(--main-nav-bg) !important;
+	border-color: var(--nav-border-color);
+}
+
+/* default nav text color */
+.navbar-default .navbar-nav > li > a {
+	color: var(--nav-text);
+}
+
+/* nav header text */
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover {
+	color: var(--nav-header-text);
+}
+
+/* when nav text is hovered over */
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+	background-color: var(--nav-hover-bg);
+	color: var(--nav-active-text) !important;
+}
+
+/* active nav elements */
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+	background-color: var(--nav-hover-bg);
+	color: var(--nav-active-text) !important;
+}
+
+/* selected element for nav dropdown */
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
+	background-color: var(--nav-hover-bg) !important;
+	color: var(--nav-text);
+}
+
+/* default dropdown nav elements */
+.dropdown-menu {
+	background-color: var(--nav-dropdown-bg) !important;
+	border-color:var(--nav-dropdown-divider)  !important;
+	color: var(--nav-text) !important;
+}
+
+/* hovered elements in nav dropdown */
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+	background-color: var(--main-nav-bg) !important;
+	color: var(--nav-text) !important;
+}
+
+/* mobile navbar dropdown links */
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+	color: var(--nav-text) !important;
+}
+
+.dropdown-header {
+	color: var(--nav-header-text) !important;
+}
+
+.dropdown-menu .divider {
+	background-color: var(--nav-dropdown-divider)  !important;
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}

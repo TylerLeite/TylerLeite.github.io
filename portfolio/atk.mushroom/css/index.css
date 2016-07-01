@@ -1,0 +1,55 @@
+/* GENERAL
+-------------------------------------------------- */
+:root {
+	--button-bg: #A8422A;
+	--button-hover-bg: #B8523A;
+	--button-border: #98321A;
+	--button-hover-border: #A8422A;
+	--button-text: #EEEEEE;
+}
+
+.btn-default, .btn-lg {
+	background: var(--button-bg);
+	border-color: var(--button-border);
+	color: var(--button-text);
+}
+
+.btn-default:hover, .btn-default:active, .btn-default:focus,
+.btn-lg:hover, .btn-lg:active, .btn-lg:focus {
+	background: var(--button-hover-bg) !important;
+	border-color: var(--button-border) !important;
+	color: var(--button-text) !important;
+}
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}
