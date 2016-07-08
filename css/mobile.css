@@ -1,0 +1,62 @@
+#version {
+  font-size: 7vh;
+  width: 20vh;
+}
+
+.fa-mobile {
+  border-bottom: 3px solid #eee;
+}
+
+.hovertext {
+  display: none;
+}
+
+#diamond {
+  margin-top: 11vh;
+  font-size: 14vh;
+}
+
+@media (max-width: 700px) {
+  #diamond {
+    margin-top: 11vh;
+    font-size: 10vh;
+  }
+}
+
+.logo-box a {
+  margin-left: 2vw;
+}
+
+@media (min-width: 500px) {
+  .fa-file-text::after {
+    font-family: Source Code Pro;
+    content: "Resume";
+    padding-left: 2vw;
+  }
+
+  .fa-linkedin-square::after {
+    font-family: Source Code Pro;
+    content: "Linkedin";
+    padding-left: 2vw;
+  }
+
+  .fa-github::after {
+    font-family: Source Code Pro;
+    content: "Github";
+    padding-left: 2vw;
+  }
+
+  .fa-briefcase::after {
+    font-family: Source Code Pro;
+    content: "Portfolio";
+    padding-left: 2vw;
+  }
+
+}
+
+@media (max-width: 500px) {
+  #diamond {
+    text-align: center;
+    font-size: 15vh;
+  }
+}
