@@ -1,13 +1,5 @@
 body {
     font-family: Source Code Pro;
-    color: #eee;
-
-    background-image: url("http://tylerleite.github.io/img/bg-home.jpg");
-
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-
 }
 
 .noselect {
@@ -26,6 +18,10 @@ body {
      1px -1px 0 #000,
     -1px  1px 0 #000,
      1px  1px 0 #000;
+}
+
+a:link {
+  text-decoration: none;
 }
 
 #version {

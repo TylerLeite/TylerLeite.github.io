@@ -1,3 +1,14 @@
+body {
+    color: #eee;
+
+    background-image: url("http://tylerleite.github.io/img/bg-home.jpg");
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+
+}
+
 /** Interesting stuff */
 #version {
   font-size: 5vmax;
