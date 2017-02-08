@@ -1,0 +1,29 @@
+html {
+  background-color: #0f80c4;
+}
+
+.page {
+  display: block;
+  width: 90vw;
+  margin: 0 auto;
+
+  font-family: 'Montserrat', sans-serif;
+  color: #eee;
+}
+
+a:link, a:hover, a:visited {
+  font-family: 'Press Start 2P', sans-serif;
+  text-decoration: none;
+  font-weight: bold;
+  color: #ffbc38;
+}
+
+.title {
+  text-align: center;
+  font-size: 36px;
+
+}
+
+.article h1 {
+  font-size: 24px;
+}

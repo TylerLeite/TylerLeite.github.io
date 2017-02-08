@@ -1,82 +1,28 @@
+* {
+  image-rendering: pixelated;
+}
+
 body {
-    font-family: Source Code Pro;
-    color: #eee;
-
-    background-image: url("../img/bg-home.jpg");
-    
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center; 
-
+  background: url("../graphics/bg.jpg");
+  background-repeat: repeat-x;
+  background-size: contain;
 }
 
-.noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* Internet Explorer/Edge */
-  user-select: none;           /* Non-prefixed version, currently
-                                  not supported by any browser */
+p {
+  width: 100%;
+  font-size: var(--font-size-text);
+  text-align: center;
+  margin-top: var(--pmargin);
+  font-family: 'Press Start 2P', sans-serif;
+  color: var(--text-color-main);
 }
 
-.stroke-text {
-  text-shadow:
-    -1px -1px 0 #000,
-     1px -1px 0 #000,
-    -1px  1px 0 #000,
-     1px  1px 0 #000;
-}
-
-#version {
-  position: fixed;
-  top: 1vw;
-  right: 1vw;
-}
-
-#version a:link, #version a:visited {
-  color: #eee;
-}
-
-#version a:hover {
-  color: #111;
-}
-
-#diamond a:link, #diamond a:visited {
-  color: #333;
-}
-
-#diamond a:hover {
-  color: #88f;
-}
-
-#logo-box-1 {
-  background: #ff8888;
-}
-
-#logo-box-2 {
-  background: #ffff88;
-}
-
-#logo-box-3 {
-  background: #88ff88;
-}
-
-#logo-box-4 {
-  background: #e8e8e8;
-}
-
-#credits {
-  position: absolute;
-  right: 1vw; bottom: 1vh;
-  font-size: 2.3vh;
-}
-
-#credits a:link, #credits a:visited {
-  color: #88f;
-  text-decoration: none;
-}
-
-#credits a:hover {
-  color: #eee;
+.portrait {
+    width: 512px;
+    height: 493px;
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: calc(50% - 256px);
+    bottom: -50px;
 }
