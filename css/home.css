@@ -2,16 +2,18 @@
   image-rendering: pixelated;
 }
 
-body {
+html {  
   padding: 0;
   margin: 0;
 
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+body {
   background: url("../graphics/bg.jpg");
   background-repeat: repeat-x;
   background-size: contain;
-
-  max-height: 100vh;
-  overflow: hidden;
 }
 
 p {
