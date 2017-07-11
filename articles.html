@@ -146,7 +146,8 @@ _newPageSelected (newVal, oldVal) {
 
         <p>This method is nice and simple, but there is a bit of a flaw. If the user switches between pages while a transition is going on, you'll get some funky behavior. You can see what I mean by editing my example and setting the transition duration to 5s, then clicking between tabs very quickly. You queue up all those transitions and it breaks them until the time has passed. There are two ways around this. One is to have a timer that starts when the transition starts and ends when the transition ends. In your <c>select()</c> function, just check if that timer is going and refuse to switch while it is.</p>
 
-<pre><code class="JavaScript">function select (n) {
+<pre><code class="JavaScript"> // This is defined outside the src-element definition
+function select (n) {
   let src = document.querySelector('my-src');
   if (src.transitionReady) {
     let pages = src.$.pages;
@@ -154,6 +155,7 @@ _newPageSelected (newVal, oldVal) {
   }
 }
 
+// This is a member function of your src-element
 _newPageSelected (newVal, oldVal) {
   let pages = this.$.pages.children;
 
