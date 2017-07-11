@@ -79,7 +79,7 @@ update your fonts. Or just deal with it. I think those are the only options.
       -->
       <div class="titleWrapper">
         <p class="title" id="animating-iron-pages">Animating &lt;iron-pages&gt; in Polymer 2.0</p>
-        <a href="articles.html" class="linkBack">top ^</a>
+        <a href="/articles" class="linkBack">top ^</a>
       </div>
 
       <div class="article">
@@ -142,7 +142,7 @@ _newPageSelected (newVal, oldVal) {
           Ok, so here's what's going on in the code above. First, we are creating our <el>iron&#8209;pages</el> element and creating a two-way data bind to one of our src element's properties. In this case, we're just calling it <i>selected</i>. We then create an observer for this property, so we can run some code whenever it changes. This is useful to us since <el>iron&#8209;pages</el> will never change the page without also changing its 'selected' property, and therefore our src element's 'selected' property. In this observer, we first set the current page's opacity to 0. This is our workaround. Since we can't create a transition for the display property, we just need to make sure that our page's opacity is changing right along with it. And opacity <i>is</i> something we can create a transition for. But we're not done yet. We still need to set the opacity back to 1, or else the whole page would just be invisible and useless. We do this with <c>window.setTimeout</c> so that we can run it asynchronously. Otherwise, some voodoo would go on and our rendering agent wouldn't realize that the opacity changed at all (so no transition).
         </p>
 
-        <p>If you're still confused about how this all fits together, check out <a target="_blank" href="examples/animating-iron-pages/transition.html">this example</a> of a full src element (opens in a new tab). Once you understand how that works, you can get more fancy with your transitions. No need to stop at fading in and fading out, you can adjust scale, position, color scheme... the possibilites are (actually) endless. Just set an initial value in the observer, a final value in the asynchronous function, and a transition in the CSS.</p>
+        <p>If you're still confused about how this all fits together, check out <a target="_blank" href="/examples/animating-iron-pages/transition">this example</a> of a full src element (opens in a new tab). Once you understand how that works, you can get more fancy with your transitions. No need to stop at fading in and fading out, you can adjust scale, position, color scheme... the possibilites are (actually) endless. Just set an initial value in the observer, a final value in the asynchronous function, and a transition in the CSS.</p>
 
         <p>This method is nice and simple, but there is a bit of a flaw. If the user switches between pages while a transition is going on, you'll get some funky behavior. You can see what I mean by editing my example and setting the transition duration to 5s, then clicking between tabs very quickly. You queue up all those transitions and it breaks them until the time has passed. There are two ways around this. One is to have a timer that starts when the transition starts and ends when the transition ends. In your <c>select()</c> function, just check if that timer is going and refuse to switch while it is.</p>
 
@@ -217,7 +217,7 @@ _newPageSelected (newVal, oldVal) {
 </code></pre>
 
         <p>
-          Again, if you're still having trouble understanding, check out this <a target="_blank" href="examples/animating-iron-pages/animation.html">more complete example</a>
+          Again, if you're still having trouble understanding, check out this <a target="_blank" href="/examples/animating-iron-pages/animation">more complete example</a>
         </p>
 
         <p>
