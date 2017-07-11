@@ -4,26 +4,91 @@ html {
 
 .page {
   display: block;
-  width: 90vw;
+  width: 66vw;
+  min-height: 100vh !important;
   margin: 0 auto;
+  padding: 0 2vw;
 
   font-family: 'Montserrat', sans-serif;
-  color: #eee;
+  background: var(--off-white);
+  color: var(--dark-gray);
 }
 
 a:link, a:hover, a:visited {
   font-family: 'Press Start 2P', sans-serif;
   text-decoration: none;
   font-weight: bold;
-  color: #ffbc38;
+  color: var(--dark-orange);
+}
+
+h2 {
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 14px;
+  margin: 0;
+}
+ul.contents {
+  list-style: none;
+  margin: 1vh 0 0 0;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #333;
+  width: 85%;
+  margin: 4vh auto;
+}
+
+.titleWrapper {
+  position: relative;
 }
 
 .title {
+  font-family: 'Press Start 2P', sans-serif;
   text-align: center;
-  font-size: 36px;
-
+  font-size: 20px;
 }
 
-.article h1 {
-  font-size: 24px;
+.linkBack {
+  position: absolute;
+  top: calc(50% - 8px);
+  right: 0;
+}
+
+.article > p {
+    line-height: 1.4;
+}
+
+.article a:link, .article a:hover, .article a:visited {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  color: var(--dark-orange);
+}
+
+.article a:hover {
+  text-decoration: underline;
+}
+
+d {
+  font-weight: bold;
+}
+d:hover {
+  text-decoration: line-through;
+}
+
+/* misc custom elements */
+el {
+  color: var(--red);
+}
+
+c {
+  color: var(--blue);
+}
+
+an {
+  color: var(--purple);
+}
+
+trn {
+  color: var(--dark-green);
 }

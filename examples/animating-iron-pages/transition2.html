@@ -1,0 +1,168 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta lang="en-us">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Examples</title>
+
+    <link rel="icon" type="image/png" href="./img/favicon.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="../../css/normalize.css">
+
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+</head>
+<body>
+
+<pre><code class="html">
+&lt;link rel="import" href="/bower_components/polymer/polymer-element.html"&gt;
+&lt;link rel="import" href="/bower_components/iron-pages/iron-pages.html"&gt;
+
+&lt;dom-module id="my-src"&gt;
+  &lt;template&gt;
+    &lt;style&gt;
+      #nav {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      #nav &gt; p {
+        height: 100%;
+        cursor: pointer;
+      }
+      #nav &gt; p:hover {
+        color: #888;
+      }
+
+      iron-pages &gt; .iron-selected {
+        /* This is the only important css, the rest is just to make it look a bit prettier */
+        transition: opacity 3.5s;
+      }
+
+      .page {
+        width: 100vw;
+        height: 100vh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .page &gt; p {
+        width: 30vw;
+        height: 15vh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: 3px solid black;
+
+        font-size: 5vmin;
+      }
+
+      .page.one &gt; p {
+        border-color: #dd4444;
+      }
+      .page.two &gt; p {
+        border-color: #44dd44;
+      }
+      .page.three &gt; p  {
+        border-color: #4444dd;
+      }
+    &lt;/style&gt;
+
+    &lt;div id="nav"&gt;
+      &lt;!-- In case you were wondering how to implement a nav bad, I find this to be the simplest way --&gt;
+      &lt;p onclick="select(0);"&gt;Page 1&lt;/p&gt;
+      &lt;p onclick="select(1);"&gt;Page 2&lt;/p&gt;
+      &lt;p onclick="select(2);"&gt;Page 3&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;iron-pages
+      id="pages"
+      selected="{{selected}}"
+    &gt;
+      &lt;div class="page one"&gt;&lt;p&gt;My page 1&lt;/p&gt;&lt;/div&gt;
+      &lt;div class="page two"&gt;&lt;p&gt;My page 2&lt;/p&gt;&lt;/div&gt;
+      &lt;div class="page three"&gt;&lt;p&gt;My page 3&lt;/p&gt;&lt;/div&gt;
+    &lt;/iron-pages&gt;
+  &lt;/template&gt;
+
+  &lt;script&gt;
+    function select (n) {
+      /* Be careful with the shadow-dom, 2.0 doesn't mess around */
+      /* Depending on how deep this element is, you may need to find a
+         different way of accessing iron-pages */
+      let src = document.querySelector('my-src');
+      if (src.transitionReady) {
+        let pages = src.$.pages;
+        pages.select(n);
+      }
+    }
+
+    // Replace mySrc and my-src with appropriate names if copy-pasting this code
+    class mySrc extends Polymer.Element {
+      static get is () { return 'my-src'; }
+
+      static get properties () {
+        return {
+          // Two-way bound to iron-pages selected property
+          selected: {
+            type: Number,
+            notify: true,
+            value: 0,
+            observer: '_newPageSelected',
+          },
+
+          // Halt page transtions while an animation is happening
+          transitionReady: {
+            type: Boolean,
+            value: true,
+          }
+        };
+      }
+
+      // Observers
+      _newPageSelected (newVal, oldVal) {
+        let pages = this.$.pages.children;
+
+        if (typeof oldVal !== 'undefined') {
+          // Don't want to do this on first page load
+          this.set('transitionReady', false); // Make sure you add this to properties as well
+          setTimeout(
+            (() =&gt; {
+              this.set('transitionReady', true);
+            }).bind(this), 3500); // Change this to be the same as your transition time in milliseconds
+        }
+
+        // Set the selected page to have 0 opacity
+        pages[newVal].style.opacity = 0;
+
+        // Run this asynchonously to avoid pesky optimizations.
+        setTimeout(
+          ((node) =&gt; {
+            node.style.opacity = 1;
+          }).bind(this, pages[newVal]), 0);
+
+
+      }
+    }
+
+    window.customElements.define(mySrc.is, mySrc);
+  &lt;/script&gt;
+&lt;/dom-module&gt;
+</code></pre>
+
+</body>
+</html>

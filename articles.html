@@ -1,31 +1,229 @@
+<!--
+This is the source code, it's not too special. If you came here wondering why I
+end my articles with a 𓏈 character, you're in luck.
+
+It's the unicode character for the Egyptian hieroglyph for a milk jug (W20 jrtjt).
+You may have noticed that the favicon for my website is also a milk jug, albeit a
+more modern one. Basically what it comes down to is that my last name, Leite, is
+Portuguese for milk.
+
+If your browser can't render a 𓏈, get a better one. Or a better computer. Or
+update your fonts. Or just deal with it. I think those are the only options.
+-->
+
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta lang="en-us">
-        <meta name="viewport" content="width=device-width">
+<head>
+    <meta charset="utf-8">
+    <meta lang="en-us">
+    <meta name="viewport" content="width=device-width">
 
-        <title>Articles</title>
+    <title>Articles</title>
 
-        <link rel="icon" type="image/png" href="./img/favicon.png">
+    <link rel="icon" type="image/png" href="./img/favicon.png">
 
-        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
-        <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
 
-        <link rel="stylesheet" type="text/css" href="./css/style.css">
-        <link rel="stylesheet" type="text/css" href="./css/articles.css">
-    </head>
-    <body>
-        <div class="page">
-          <p class="return"><a href="./home.html">&lt; Exit</a></p>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/articles.css">
 
-          <p class="title">Tyler's World of Text</p>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
 
-          <div class="article">
-            <h1>Arcana RPG</h1>
-            <p>I made an RPG system. It's called Arcana.</p>
-            <p>I'm working on-and-off on a game called Randoverse in which almost everything is randomized, from characters, plotlines, and quests to character sprites and even the languages the NPCs use to communicate with you. The goal of the game is </p>
-          </div>
-        </div>
-    </body>
+      /* Usually anchors scroll you such that the top of the window lines up with
+          the top of the element you're scrolling to. I'd prefer a bit more space
+          at the top, so I have this listener
+       */
+      window.addEventListener(
+        "hashchange",
+        () => {
+          window.scrollTo(window.scrollX, window.scrollY - 75);
+        }
+      );
+    </script>
+</head>
+<body>
+  <div class="page">
+    <div class="">
+      <p class="return"><a href="home.html">&lt; Exit</a></p>
+
+      <p class="title">Tyler's Articles</p>
+      <div class="article">
+        <p>
+          Below is a repository of miscellaneous knowledge, mostly related to web development. I keep it so I have a reference for various things I've had to figure out. Feel free to use any information or code presented here with or without attribution.
+        </p>
+
+        <h2>Contents</h2>
+        <ul class="contents">
+          <li><a href="#animating-iron-pages">Animating &lt;iron-pages&gt; in Polymer 2.0 - July 11, 2017</a></li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <!-- This is my article boilerplate. If I were running my own server, I would get articles from a database on my server. As it stands, I'm hosting this site on github pages, so my options are rather limited. In fact, the best I can really do (without a lot of extra work) is just paste all of these articles in here statically.
+
+      <div class="titleWrapper">
+        <p class="title" id="insert-title-here">INSERT TITLE HERE</p>
+        <a href="articles.html" class="linkBack">top ^</a>
+      </div>
+
+      <div class="article">
+        <p>
+          INSERT CONTENT HERE 𓏈
+        </p>
+      </div>
+      -->
+      <div class="titleWrapper">
+        <p class="title" id="animating-iron-pages">Animating &lt;iron-pages&gt; in Polymer 2.0</p>
+        <a href="articles.html" class="linkBack">top ^</a>
+      </div>
+
+      <div class="article">
+        <p>
+          The <a target="_blank" href="https://www.webcomponents.org/element/PolymerElements/iron-pages">iron&#8209;pages</a> element is very useful. It lets you easily share data between several pages of an application and transition between them without much in the way of load time. The main downside is that you need to be careful about how you load in data (especially if you're hitting some API to get hundreds of megabytes of data from your server). But a that's not what I'm going to talk about right now. Right now, I will focus on another downside of <el>iron&#8209;pages</el>: they look kinda ugly. There isn't much in the way of flair. Back in the days of Polymer 1.0, we had this cool element <a target="_blank" href="https://www.webcomponents.org/element/PolymerElements/neon-animation/elements/neon-animated-pages">neon&#8209;animated&#8209;pages</a>, but the entire neon&#8209;animations package has since been <d>deprecated</d>. Webcomponents.org states "This Element is now deprecated. Please use the web animations api or CSS animations". Ok, simple enough right? Just take a look at the <el>iron&#8209;pages</el> source code, see that the transition between selected pages is just changing the display property of any unused page to 'none'. So all we need to do is add a css transition.
+        </p>
+
+<pre><code class="CSS">iron-pages > * {
+  transition: display 2s;
+}
+</code></pre>
+
+        <p>
+          Would that it were so simple. You actually can't apply a transition to the display property. Which makes sense, since changing the display property can actually have tons of different effects, from size and position of the element itself to arrangement of its child elements. The web animations api doesn't seem too useful either. A css animation starts when the element is loaded and repeats from there (anywhere from zero to infinite times). So what gives? It seems like the fine folks developing PolymerElements left us stranded in the middle of the ocean with useless "advice" on how to swim. But maybe that advice isn't actually useless. Could it be that they're pulling a Miyagi, pointing us in the right direction without actually giving us the answer? Yes, of course. I'm not like that though, I'll just give you the answer.
+        </p>
+
+<pre><code class="html">&lt;!-- In your src element's body --&gt;
+&lt;style&gt;
+  iron-pages > .iron-selected {
+    transition: opacity 0.5s;
+  }
+&lt;/style&gt;
+
+&lt;iron-pages
+  id="pages"
+  selected="{{selected}}"
+&gt;
+  &lt;div&gt;My Page 1&lt;/div&gt;
+  &lt;div&gt;My Page 2&lt;/div&gt;
+  &lt;div&gt;My Page 3&lt;/div&gt;
+&lt;/iron-pages&gt;
+</code></pre>
+
+<pre><code class="JavaScript">// In your src element's properties
+selected: {
+  type: Number,
+  notify: true,
+  value: 0,
+  observer: '_newPageSelected',
+},
+
+
+// A member function of your src element
+_newPageSelected (newVal, oldVal) {
+  let pages = this.$.pages.children;
+
+  pages[newVal].style.opacity = 0;
+  setTimeout(
+    ((node) => {
+      node.style.opacity = 1;
+    }).bind(this, pages[newVal]), 0);
+}
+</code></pre>
+
+        <p>
+          What does this even mean? Well let me define a few things real quick. First off, when I say your "src element", I mean the element that contains your <el>iron&#8209;pages</el>. Therefore, your src element's body is anything between the two <el>template</el> tags that should make up the first and only child of your <el>dom&#8209;module</el> element. The src element's properties would be the return value of its <c>properties()</c> function, and the member functions are just the element's... member functions. If you're not sure about what that means, you need to brush up on your OOP skills.
+        </p>
+
+        <p>
+          Ok, so here's what's going on in the code above. First, we are creating our <el>iron&#8209;pages</el> element and creating a two-way data bind to one of our src element's properties. In this case, we're just calling it <i>selected</i>. We then create an observer for this property, so we can run some code whenever it changes. This is useful to us since <el>iron&#8209;pages</el> will never change the page without also changing its 'selected' property, and therefore our src element's 'selected' property. In this observer, we first set the current page's opacity to 0. This is our workaround. Since we can't create a transition for the display property, we just need to make sure that our page's opacity is changing right along with it. And opacity <i>is</i> something we can create a transition for. But we're not done yet. We still need to set the opacity back to 1, or else the whole page would just be invisible and useless. We do this with <c>window.setTimeout</c> so that we can run it asynchronously. Otherwise, some voodoo would go on and our rendering agent wouldn't realize that the opacity changed at all (so no transition).
+        </p>
+
+        <p>If you're still confused about how this all fits together, check out <a target="_blank" href="examples/animating-iron-pages/transition.html">this example</a> of a full src element (opens in a new tab). Once you understand how that works, you can get more fancy with your transitions. No need to stop at fading in and fading out, you can adjust scale, position, color scheme... the possibilites are (actually) endless. Just set an initial value in the observer, a final value in the asynchronous function, and a transition in the CSS.</p>
+
+        <p>This method is nice and simple, but there is a bit of a flaw. If the user switches between pages while a transition is going on, you'll get some funky behavior. You can see what I mean by editing my example and setting the transition duration to 5s, then clicking between tabs very quickly. You queue up all those transitions and it breaks them until the time has passed. There are two ways around this. One is to have a timer that starts when the transition starts and ends when the transition ends. In your <c>select()</c> function, just check if that timer is going and refuse to switch while it is.</p>
+
+<pre><code class="JavaScript">function select (n) {
+  let src = document.querySelector('my-src');
+  if (src.transitionReady) {
+    let pages = src.$.pages;
+    pages.select(n);
+  }
+}
+
+_newPageSelected (newVal, oldVal) {
+  let pages = this.$.pages.children;
+
+  pages[newVal].style.opacity = 0;
+  setTimeout(
+    ((node) => {
+      node.style.opacity = 1;
+    }).bind(this, pages[newVal]), 0);
+
+  this.set('transitionReady', false); // Make sure you add this to properties as well
+  setTimeout(
+    (() => {
+      this.set('transitionReady', true);
+    }).bind(this), 5000); // Change this to be the same as your transition time in milliseconds
+}
+</code></pre>
+
+        <p>
+          The obvious problem here is that you're taking away responsiveness from the user. If your transition is five seconds long, your user is going to get annoyed at having to wait for that transition every time they misclick a link. If you lower the timeout, it defeats the whole purpose as you still get the transition interruption bug. So how can we be more flexible and allow for the best possible user experience? Let's check the docs. <i>"This Element is now deprecated. Please use the web animations api or </i><b>CSS animations</b><i>"</i>.
+        </p>
+
+        <p>
+          <i>"But Tyler, you said that animations weren't useful because they just looped when the element loaded or something!"</i> Actually, that was a bit misleading. An element's css animation actually restarts whenever its animation property changes. Equally as important, you can interrupt a css animation at any time by simply deleting its animation property (or removing the class that added it), meaning we won't have the same issue of jittery transitions when the user switches pages too quickly.
+        </p>
+
+        <p>
+          Because running and stopping an animation is as easy as adding or removing a class, we can actually use almost the same code as for the transition method. The only difference is that rather than changing a style property, you change a class. That and you need to define a css animation (obviously). Actually, all told the animation code is a bit simpler since you don't need to worry about any <c>setTimeout()</c> shenanigans. Here's the code:
+        </p>
+
+<pre><code class="html">&lt;!-- In your src element's body --&gt;
+&lt;style&gt;
+  /* Define the animation here. You can do pretty much anything you want. */
+  @keyframes slide {
+    from { left: -70%; }
+    to { left: 0; }
+  }
+
+  /* Adding this class starts the animation, removing it cuts it short */
+  .animated {
+    animation-duration: 1s;
+    animation-name: slide;
+  }
+&lt;/style&gt;
+</code></pre>
+
+<pre><code class="JavaScript">_newPageSelected (newVal, oldVal) {
+  let pages = this.$.pages.children;
+
+  // Run the animation on the newly selected page
+  if (!pages[newVal].className.includes('animated')) {
+    pages[newVal].className += ' animated';
+  }
+
+  if (typeof oldVal !== 'undefined') {
+    // Stop the animation of hidden pages
+    pages[oldVal].className = pages[oldVal].className.split(' animated').join('');
+  }
+}
+</code></pre>
+
+        <p>
+          Again, if you're still having trouble understanding, check out this <a target="_blank" href="examples/animating-iron-pages/animation.html">more complete example</a>
+        </p>
+
+        <p>
+          So what's better, <an>animations</an> or <trn>transitions</trn>? Well, animations are less of a headache and offer better control over keyframes. It's also cleaner to animate a lot of properties than to transition a lot of them because of the little hack we need to do with <c>setTimeout()</c> when dealing with transitions. However, from a more philosophical standpoint, transitions are what you're <i>supposed</i> to use. The point of a transition is to transition between states, whereas the point of an animation is to animate an element (tough to grasp, I know). So maybe it feels a bit hacky, or that you're shoehorning in animations where you don't need them. After all, I believe that the animation method is actually a bit more resource-intensive than the transition method. Don't quote me on that though, I haven't actually run any benchmarks and don't want to. At the end of the day though, I recommend just sticking with what you're comfortable with. In my personal opinion, using animations is cleaner and easier. But neither is objectively right or wrong. 𓏈
+        </p>
+
+      </div>
+    </div>
+  </div>
+</body>
 </html>

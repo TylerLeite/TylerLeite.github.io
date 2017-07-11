@@ -3,19 +3,24 @@
 /* custom properties */
 :root {
   /* Color definitions */
-  --yellow: #E7F268;
-  --purple: #7368F2;
-  --red:    #EE5555;
-  --pink:   #F268A2;
-  --green:  #68F2B8;
+  --yellow: #e7f268;
+  --purple: #7368f2;
+  --red:    #ee5555;
+  --pink:   #f268a2;
+  --green:  #68f2b8;
   --blue:   #111199;
-  --orange: #FFB300;
+  --orange: #ffb300;
 
-  --white:      #EEEEEE;
-  --light-gray: #C9C9C9;
+  --dark-orange: #fca700;
+  --dark-green: #56c999;
+
+  --white:      #ffffff;
+  --off-white:  #eeeeee;
+  --light-gray: #c9c9c9;
   --gray:       #707070;
   --dark-gray:  #303030;
-  --black:      #1E1E1E;
+  --off-black:  #1e1e1e;
+  --black:      #000000;
 
   /* Color Scheme */
   --text-color-main:    var(--orange);
