@@ -6,7 +6,7 @@ html {
   display: block;
   width: 66vw;
   min-height: 100vh !important;
-  margin: 0 auto;
+  margin: 0 auto 6vh auto;
   padding: 0 2vw;
 
   font-family: 'Montserrat', sans-serif;
