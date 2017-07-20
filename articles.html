@@ -9,6 +9,9 @@ Portuguese for milk.
 
 If your browser can't render a 𓏈, get a better one. Or a better computer. Or
 update your fonts. Or just deal with it. I think those are the only options.
+
+
+Banner image is edited from a photograph by Stephen W. Oachs http://www.stephenoachs.com/
 -->
 
 <html>
@@ -40,12 +43,28 @@ update your fonts. Or just deal with it. I think those are the only options.
       window.addEventListener(
         "hashchange",
         () => {
-          window.scrollTo(window.scrollX, window.scrollY - 75);
+          window.scrollTo(window.scrollX, window.scrollY - 100);
+        }
+      );
+
+      window.addEventListener(
+        "scroll",
+        (e) => {
+          let titles = document.querySelectorAll('.title');
+          for (let i = 0; i < titles.length; i++) {
+            let title = titles[i];
+            let top = title.getBoundingClientRect().top;
+
+            if (top > 0 && top < 100) {
+              window.location.hash = title.id;
+            }
+          }
         }
       );
     </script>
 </head>
 <body>
+  <img class="banner" src="graphics/sf_skyline.png">
   <div class="page">
     <div class="">
       <p class="return"><a href="/home">&lt; Exit</a></p>
