@@ -46,21 +46,6 @@ Banner image is edited from a photograph by Stephen W. Oachs http://www.stepheno
           window.scrollTo(window.scrollX, window.scrollY - 100);
         }
       );
-
-      window.addEventListener(
-        "scroll",
-        (e) => {
-          let titles = document.querySelectorAll('.title');
-          for (let i = 0; i < titles.length; i++) {
-            let title = titles[i];
-            let top = title.getBoundingClientRect().top;
-
-            if (top > 0 && top < 100) {
-              window.location.hash = title.id;
-            }
-          }
-        }
-      );
     </script>
 </head>
 <body>
