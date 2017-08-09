@@ -59,6 +59,15 @@ hr {
   position: relative;
 }
 
+a.imgLink {
+  position: absolute;
+  top: -8px;
+}
+
+a.imgLink img:hover {
+  filter: hue-rotate(180deg);
+}
+
 .title {
   font-family: 'Press Start 2P', sans-serif;
   text-align: center;
@@ -69,6 +78,10 @@ hr {
   position: absolute;
   top: calc(50% - 8px);
   right: 0;
+}
+
+.linkBack:hover {
+  filter: hue-rotate(180deg);
 }
 
 .article > p {

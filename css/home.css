@@ -2,7 +2,7 @@
   image-rendering: pixelated;
 }
 
-html {  
+html {
   padding: 0;
   margin: 0;
 
@@ -29,7 +29,7 @@ p {
 
   .portrait {
     width: auto;
-    height: 66vh;
+    height: 40vh;
 
     display: block;
 
