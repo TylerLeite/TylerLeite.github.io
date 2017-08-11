@@ -13,9 +13,38 @@ html {
   z-index: -1;
 }
 
+@media (max-width: 500px) {
+  .page {
+    width: 100vw;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 500px) {
+  .page {
+    width: 85%;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 950px) {
+  .page {
+    width: 66vw;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+}
+
 .page {
   display: block;
-  width: 66vw;
   min-height: 100vh !important;
   margin: 0 auto 6vh auto;
   padding: 0 2vw;
@@ -56,28 +85,23 @@ hr {
 }
 
 .titleWrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
   position: relative;
-}
-
-a.imgLink {
-  position: absolute;
-  top: -8px;
 }
 
 a.imgLink img:hover {
   filter: hue-rotate(180deg);
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .title {
   font-family: 'Press Start 2P', sans-serif;
   text-align: center;
-  font-size: 20px;
-}
-
-.linkBack {
-  position: absolute;
-  top: calc(50% - 8px);
-  right: 0;
+  flex-grow: 1;
 }
 
 .linkBack:hover {
@@ -85,7 +109,7 @@ a.imgLink img:hover {
 }
 
 .article > p {
-    line-height: 1.4;
+  line-height: 1.4;
 }
 
 .article a:link, .article a:hover, .article a:visited {

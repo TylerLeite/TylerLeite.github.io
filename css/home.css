@@ -26,7 +26,6 @@ p {
 }
 
 @media (max-width: 500px) {
-
   .portrait {
     width: auto;
     height: 40vh;
