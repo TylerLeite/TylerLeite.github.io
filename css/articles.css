@@ -122,6 +122,11 @@ a.imgLink img:hover {
   text-decoration: underline;
 }
 
+p.storyEnd {
+  width: 100%;
+  text-align: right;
+}
+
 d {
   font-weight: bold;
 }
