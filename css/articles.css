@@ -59,11 +59,19 @@ html {
   color: var(--dark-gray);
 }
 
+.return {
+  cursor: pointer;
+}
+
 a:link, a:hover, a:visited {
   font-family: 'Press Start 2P', sans-serif;
   text-decoration: none;
   font-weight: bold;
   color: var(--dark-orange);
+}
+
+a:hover {
+  filter: hue-rotate(180deg);
 }
 
 h2 {
@@ -93,7 +101,6 @@ hr {
 }
 
 a.imgLink img:hover {
-  filter: hue-rotate(180deg);
   flex-grow: 0;
   flex-shrink: 0;
 }
@@ -110,6 +117,7 @@ a.imgLink img:hover {
 
 .article > p {
   line-height: 1.4;
+  text-align: justify;
 }
 
 .article a:link, .article a:hover, .article a:visited {
@@ -119,34 +127,10 @@ a.imgLink img:hover {
 }
 
 .article a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 p.storyEnd {
   width: 100%;
   text-align: right;
-}
-
-d {
-  font-weight: bold;
-}
-d:hover {
-  text-decoration: line-through;
-}
-
-/* misc custom elements */
-el {
-  color: var(--red);
-}
-
-c {
-  color: var(--blue);
-}
-
-an {
-  color: var(--purple);
-}
-
-trn {
-  color: var(--dark-green);
 }

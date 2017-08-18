@@ -25,6 +25,21 @@ p {
   color: var(--text-color-main);
 }
 
+.icons {
+  margin-top: 0;
+  cursor: default;
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.icon:hover {
+  filter: hue-rotate(180deg);
+}
+
 @media (max-width: 500px) {
   .portrait {
     width: auto;
@@ -34,7 +49,7 @@ p {
 
     position: fixed;
     bottom: 0;
-    left: calc(50% - (33vh * 512 / 493));
+    left: calc(50% - (23vh * 512 / 493));
   }
 }
 
@@ -45,7 +60,8 @@ p {
       display: block;
       position: fixed;
       bottom: 0;
-      left: calc(50% - 256px);
+      /*left: calc(50% - 256px);*/
       bottom: -50px;
+      left: 0;
   }
 }
