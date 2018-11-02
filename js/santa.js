@@ -1,5 +1,5 @@
 function santa (seed) {
-  let peeps = ['Tyler', 'Allie', 'Kyle', 'Ajmal', 'Mama', 'Ddogg'];
+  let peeps = ['Tyler', 'Allie', 'Kyle', 'Ajmal', 'Mama', 'Ddogg', 'Stefanie'];
 
   function randomNumber (range) {
     seed = (52667*seed + 20219) % 104729;
