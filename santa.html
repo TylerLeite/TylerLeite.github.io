@@ -16,7 +16,7 @@
     <script type="text/javascript" src="./js/santa.js"></script>
 
     <script>
-      const results = santa(100);
+      const results = santa(420);
       function handleClick (name) {
         let text = document.getElementById('you-get');
         text.innerHTML = results[name];
@@ -27,12 +27,13 @@
   <body>
     <p class="message">Click your button to see who you get!</p>
     <div class="buttons">
+      <button onclick="handleClick('Austin')">Austin</button>
+      <button onclick="handleClick('Cathy')">Cathy</button>
+      <button onclick="handleClick('Chase')">Chase</button>
+      <button onclick="handleClick('Corn')">Corn</button>
+      <button onclick="handleClick('Noah')">Noah</button>
       <button onclick="handleClick('Tyler')">Tyler</button>
-      <button onclick="handleClick('Kyle')">Kyle</button>
-      <button onclick="handleClick('Allie')">Allie</button>
-      <button onclick="handleClick('Ajmal')">Ajmal</button>
-      <button onclick="handleClick('Mama')">Mama</button>
-      <button onclick="handleClick('Ddogg')">Ddogg</button>
+      <button onclick="handleClick('Winslorp')">Winslorp</button>
     </div>
 
     <p id="you-get">???</p>
